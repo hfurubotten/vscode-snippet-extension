@@ -1,0 +1,19 @@
+{
+  "name": "mrheine-snippets",
+  "displayName": "MrHeine Snippets",
+  "description": "Collection of MrHeine's most used snippets",
+  "version": "0.0.3",
+  "publisher": "MrHeine",
+  "repository": {
+    "url": "https://github.com/hfurubotten/vscode-snippet-extension"
+  },
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": []
+  }
+}
