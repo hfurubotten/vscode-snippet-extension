@@ -1,0 +1,56 @@
+{
+  "azurerm_naming_app_service_plan": {
+    "scope": "terraform",
+    "prefix": ["app_service_plan_naming", "asp_naming"],
+    "body": [
+      "${4:plan_name} = format(\"${1|%s-%s-asp,asp-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 40 characters",
+      "$0"
+    ],
+    "description": "Inserts a local for generating an app service plan name."
+  },
+  "azurerm_naming_function_app": {
+    "scope": "terraform",
+    "prefix": ["function_app_naming", "func_naming"],
+    "body": [
+      "${4:func_app_name} = format(\"${1|%s-%s-func,func-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 60 characters",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a function app name."
+  },
+  "azurerm_naming_log_analytics": {
+    "scope": "terraform",
+    "prefix": ["log_analytics_naming"],
+    "body": [
+      "${4:log_analytics_name} = format(\"${1|%s-%s-log,log-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a log analytics name."
+  },
+  "azurerm_naming_mssql_database": {
+    "scope": "terraform",
+    "prefix": ["mssql_database_naming"],
+    "body": [
+      "${2:sql_database_name} = \"$1\" # Keep it simple with no fancy formatting. Does not need to be globally unique.",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a MSSql database name."
+  },
+  "azurerm_naming_mssql_server": {
+    "scope": "terraform",
+    "prefix": ["mssql_server_naming"],
+    "body": [
+      "${4:sql_server_name} = format(\"${1|%s-%s-sql,sql-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a MSSql server name."
+  },
+  "azurerm_naming_storage_account": {
+    "scope": "terraform",
+    "prefix": ["storage_account_naming"],
+    "body": [
+      "${4:storage_account_name} = format(\"${1|%s%sst,st%s%s|}\", substr(replace(lower(${2:local.project_short_name}), \"/[^a-z0-9]/\", \"\"), 0, 21), ${3:local.environment_letter}) # Naming restrictions: max 24 characters, only alphanumeric",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a storage account name."
+  }
+}

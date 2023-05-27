@@ -1,0 +1,18 @@
+{
+  "snippet_boiler": {
+    "scope": "code-snippets,jsonc",
+    "prefix": "snippet",
+    "body": [
+      "\"${1:internal name}\": {",
+      "  \"scope\": \"${2|terraform,csharp,jsonc,typescript,python,markdown|}\",",
+      "  \"prefix\": [\"$3\"],",
+      "  \"body\": [",
+      "    $0",
+      "    \"\\$0\"",
+      "  ],",
+      "  \"description\": \"$4\"",
+      "}"
+    ],
+    "description": "Boilerplate json object for creating a new snippet."
+  }
+}

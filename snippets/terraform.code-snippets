@@ -1,0 +1,61 @@
+{
+  "tf_environment_name_variable": {
+    "scope": "terraform",
+    "prefix": ["environment_name", "env_name", "environment_variable"],
+    "body": [
+      "variable \"environment\" {",
+      "  type        = string",
+      "  description = \"Name of the runtime environment (prod/test/dev).\"",
+      "",
+      "  validation {",
+      "    condition     = contains([\"dev\", \"test\", \"prod\"], var.environment)",
+      "    error_message = \"Allowed environments are dev, test, prod.\"",
+      "  }",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts a variable block for an environment runtime name input."
+  },
+  "tf_moved": {
+    "scope": "terraform",
+    "prefix": ["moved"],
+    "body": ["moved {", "  from = $1", "  to   = $2", "}", "$0"],
+    "description": "Inserts ready to use move block."
+  },
+
+  "tf_replace_special_chars": {
+    "scope": "terraform",
+    "prefix": [
+      "replace",
+      "replace_special_chars",
+      "text_only",
+      "tf_replace_special_chars"
+    ],
+    "body": ["replace(lower($0), \"/[^a-z0-9]/\", \"\")"],
+    "description": "Inserts a replace function that removes all but alphanumeric chars."
+  },
+  "tf_format": {
+    "scope": "terraform",
+    "prefix": ["format"],
+    "body": ["format(\"${1:%s}\", $0)"],
+    "description": "Inserts an already filled format function."
+  },
+  "tf_format_ss": {
+    "scope": "terraform",
+    "prefix": ["format_ss"],
+    "body": ["format(\"${1:%s-%s}\", $0)"],
+    "description": "Inserts an already filled format function with 2 %s."
+  },
+  "tf_format_sss": {
+    "scope": "terraform",
+    "prefix": ["format_sss"],
+    "body": ["format(\"${1:%s-%s-%s}\", $0)"],
+    "description": "Inserts an already filled format function with 3 %s."
+  },
+  "tf_format_ssss": {
+    "scope": "terraform",
+    "prefix": ["format_ssss"],
+    "body": ["format(\"${1:%s-%s-%s-%s}\", $0)"],
+    "description": "Inserts an already filled format function with 4 %s."
+  }
+}

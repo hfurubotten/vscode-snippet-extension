@@ -1,0 +1,141 @@
+{
+  "app_settings_appi": {
+    "scope": "terraform",
+    "prefix": [
+      "appi_reference",
+      "insights_reference",
+      "appi_app_settings",
+      "insights_app_settings",
+      "application insights reference"
+    ],
+    "body": [
+      "APPINSIGHTS_INSTRUMENTATIONKEY             = azurerm_application_insights.${1:this}.instrumentation_key",
+      "APPLICATIONINSIGHTS_CONNECTION_STRING      = azurerm_application_insights.${1:this}.connection_string",
+      "ApplicationInsightsAgent_EXTENSION_VERSION = \"~3\" # ~2 for Windows or ~3 for Linux",
+      "XDT_MicrosoftApplicationInsights_Mode      = \"recommended\""
+    ],
+    "description": "Add application insights settings to an app service app settings."
+  },
+  "azurerm_provider": {
+    "scope": "terraform",
+    "prefix": ["azurerm provider"],
+    "body": [
+      "provider \"azurerm\" {",
+      "  features {",
+      "    key_vault {",
+      "      purge_soft_delete_on_destroy          = false",
+      "      purge_soft_deleted_secrets_on_destroy = false",
+      "    }",
+      "  }",
+      "",
+      "  storage_use_azuread        = true",
+      "  skip_provider_registration = true",
+      "}"
+    ],
+    "description": "Inserts a standard provider block for azurerm."
+  },
+  "azurerm_uami": {
+    "scope": "terraform",
+    "prefix": ["user_assigned_identity", "identity", "uami", "msi"],
+    "body": [
+      "resource \"azurerm_user_assigned_identity\" \"${1:this}\" {",
+      "  name = \"${azurerm_resource_group.${2:this}.name}-id\"$0",
+      "",
+      "  location            = azurerm_resource_group.${2:this}.location",
+      "  resource_group_name = azurerm_resource_group.${2:this}.name",
+      "",
+      "  lifecycle {",
+      "    prevent_destroy = true",
+      "  }",
+      "}"
+    ],
+    "description": "Creates a managed identity terraform resource with standard settings."
+  },
+  "azurerm_app_service_uami_reference": {
+    "scope": "terraform",
+    "prefix": [
+      "app_service_uami_reference",
+      "uami_reference",
+      "user_assigned_identity_reference"
+    ],
+    "body": [
+      "key_vault_reference_identity_id = azurerm_user_assigned_identity.${1:this}.id",
+      "identity {",
+      "  type = \"${2|UserAssigned,SystemAssigned\\, UserAssigned|}\"",
+      "  identity_ids = [",
+      "    azurerm_user_assigned_identity.${1:this}.id",
+      "  ]",
+      "}$0"
+    ],
+    "description": "Inserts a reference to an user assigned identity on an app service."
+  },
+  "azurerm_service_plan": {
+    "scope": "terraform",
+    "prefix": ["plan", "app_service_plan", "service_plan"],
+    "body": [
+      "resource \"azurerm_service_plan\" \"${1:this}\" {",
+      "  name                = ${2:local.plan_name}",
+      "  location            = azurerm_resource_group.${3:this}.location",
+      "  resource_group_name = azurerm_resource_group.${3:this}.name",
+      "  os_type             = \"Linux\"",
+      "  sku_name            = ${4|var.sku_name,B1,B2,B3,S1,S2,S3,P1v2,P2v2,P3v2,P1v3,P2v3,P3v3,EP1,EP2,EP3,WS1,WS2,WS3,D1,F1,FREE,SHARED|}",
+      "  worker_count        = ${5:1}",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts a service plan terraform resource with standard settings."
+  },
+  "azurerm_linux_web_app": {
+    "scope": "terraform",
+    "prefix": ["linux_web_app", "linux_api_app", "app_service", "api_app"],
+    "body": [
+      "resource \"azurerm_linux_web_app\" \"${1:this}\" {",
+      "  name                = ${2:local.app_service_name}",
+      "  resource_group_name = azurerm_resource_group.${3:this}.name",
+      "  location            = azurerm_resource_group.${3:this}.name",
+      "",
+      "  service_plan_id = azurerm_service_plan.${4:this}.id",
+      "",
+      "  client_affinity_enabled = false",
+      "  https_only              = true",
+      "",
+      "  site_config {",
+      "    application_stack {",
+      "      dotnet_version = \"6.0\"",
+      "    }",
+      "",
+      "    always_on         = true",
+      "    health_check_path = \"/health\"",
+      "    use_32_bit_worker = false",
+      "",
+      "    ftps_state              = \"Disabled\"",
+      "    http2_enabled           = true",
+      "    minimum_tls_version     = \"1.2\"",
+      "    scm_minimum_tls_version = \"1.2\"",
+      "  }",
+      "",
+      "  app_settings = {$0}",
+      "",
+      "  lifecycle {",
+      "    ignore_changes = [",
+      "      app_settings[\"minTlsVersion\"]",
+      "    ]",
+      "  }",
+      "}"
+    ],
+    "description": "Inserts a linux web app terraform resource with standard settings."
+  },
+  "azurerm_role_assignment": {
+    "scope": "terraform",
+    "prefix": ["role_assignment"],
+    "body": [
+      "resource \"azurerm_role_assignment\" \"${1:this}\" {",
+      "  scope                = ${2:azurerm_resource_group.this.id}",
+      "  principal_id         = $4",
+      "  role_definition_name = \"${3|Storage Blob Data Contributor,Key Vault Secrets User,Key Vault Secrets Officer,Reader,Contributor,Owner|}\"",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts an azure role assignment."
+  }
+}
