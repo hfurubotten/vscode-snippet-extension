@@ -4,6 +4,7 @@
   "description": "Collection of MrHeine's most used snippets",
   "version": "0.0.3",
   "publisher": "MrHeine",
+  "preview": true,
   "repository": {
     "url": "https://github.com/hfurubotten/vscode-snippet-extension"
   },
