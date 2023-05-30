@@ -29,6 +29,10 @@
         "path": "./snippets/terraform.code-snippets"
       },
       {
+        "language": "terraform",
+        "path": "./snippets/terraform-test.code-snippets"
+      },
+      {
         "language": "jsonc",
         "path": "./snippets/snippets.code-snippets"
       },

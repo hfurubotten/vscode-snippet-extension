@@ -7,6 +7,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## 0.0.5 - preview
+
+### Fixed
+
+- Add new testing snippets to project manifest.
+
 ## 0.0.4 - preview
 
 ### Added
