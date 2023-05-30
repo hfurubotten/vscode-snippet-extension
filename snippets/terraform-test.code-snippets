@@ -1,0 +1,49 @@
+{
+  "tf_test_assertion": {
+    "scope": "terraform",
+    "prefix": ["test_assertion_tf"],
+    "body": [
+      "resource \"test_assertions\" \"$1\" {",
+      "  component = \"$1\"",
+      "",
+      "  equal \"$3\" {",
+      "    description = \"$5\"",
+      "    want        = $6",
+      "    got         = $7",
+      "  }",
+      "",
+      "  check \"$8\" {",
+      "    description = \"$9\"",
+      "    condition   = $10",
+      "  }",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts a test assertion resource for integration testing in Terraform."
+  },
+  "tf_test_equal": {
+    "scope": "terraform",
+    "prefix": ["equal_test_assertion"],
+    "body": [
+      "equal \"$1\" {",
+      "  description = \"$2\"",
+      "  want        = $3",
+      "  got         = $4",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts a equal block for use with test assertions resource."
+  },
+  "tf_test_check": {
+    "scope": "terraform",
+    "prefix": ["check_test_assertion"],
+    "body": [
+      "check \"$1\" {",
+      "  description = \"$2\"",
+      "  condition   = $3",
+      "}",
+      "$0"
+    ],
+    "description": "Inserts a check block for use with test assertions resource."
+  }
+}
