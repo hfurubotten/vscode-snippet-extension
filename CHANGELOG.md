@@ -5,7 +5,27 @@ All notable changes to the "mrheine-snippets" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## 0.0.6 - preview
+
+### Added
+
+- Github workflow snippets
+  - Add new job
+  - Add run action
+  - Github checkout action step
+- Github composite action snippets
+  - Composite action file boilerplate
+  - Input object
+- Snippet input variable and choose inputs wrappers for selected text.
+
+### Changed
+
+- Terraform replace snippet will now autofill selected text.
+- Terraform format snippets will now ask for the correct number of inputs for the format string.
+
+### Fixed
+
+- Correct path to general snippets in project manifest.
 
 ## 0.0.5 - preview
 
