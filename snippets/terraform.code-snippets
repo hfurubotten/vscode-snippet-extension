@@ -31,8 +31,8 @@
       "text_only",
       "tf_replace_special_chars"
     ],
-    "body": ["replace(lower($0), \"/[^a-z0-9]/\", \"\")"],
-    "description": "Inserts a replace function that removes all but alphanumeric chars."
+    "body": ["replace(lower($TM_SELECTED_TEXT), \"/[^a-z0-9]/\", \"\")"],
+    "description": "Inserts a replace function, around selected text, that removes all but alphanumeric chars."
   },
   "tf_format": {
     "scope": "terraform",
@@ -43,19 +43,19 @@
   "tf_format_ss": {
     "scope": "terraform",
     "prefix": ["format_ss"],
-    "body": ["format(\"${1:%s-%s}\", $0)"],
+    "body": ["format(\"${1:%s-%s}\", $2, $3)$0"],
     "description": "Inserts an already filled format function with 2 %s."
   },
   "tf_format_sss": {
     "scope": "terraform",
     "prefix": ["format_sss"],
-    "body": ["format(\"${1:%s-%s-%s}\", $0)"],
+    "body": ["format(\"${1:%s-%s-%s}\", $2, $3, $4)$0"],
     "description": "Inserts an already filled format function with 3 %s."
   },
   "tf_format_ssss": {
     "scope": "terraform",
     "prefix": ["format_ssss"],
-    "body": ["format(\"${1:%s-%s-%s-%s}\", $0)"],
+    "body": ["format(\"${1:%s-%s-%s-%s}\", $2, $3, $4, $5)$0"],
     "description": "Inserts an already filled format function with 4 %s."
   }
 }
