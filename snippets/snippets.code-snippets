@@ -14,5 +14,17 @@
       "}"
     ],
     "description": "Boilerplate json object for creating a new snippet."
+  },
+  "snippet_input_with_default": {
+    "scope": "jsonc",
+    "prefix": ["input"],
+    "body": ["\\${${1:1}:${2:$TM_SELECTED_TEXT}}$0"],
+    "description": "Inserts an input with default value for snippets body."
+  },
+  "snippet_input_choose": {
+    "scope": "jsonc",
+    "prefix": ["choose"],
+    "body": ["\\${${1:1}|${2:$TM_SELECTED_TEXT}|}$0"],
+    "description": "Inserts an input with default value for snippets body."
   }
 }
