@@ -1,0 +1,69 @@
+{
+  "gh_composite_action": {
+    "scope": "yaml",
+    "prefix": ["composite_action"],
+    "body": [
+      "name: ${1:Composite Action Name}",
+      "description: ${2:Action description}",
+      "author: ${3:Heine Furubotten}",
+      "inputs:",
+      "  working-directory:",
+      "    required: false",
+      "    type: string",
+      "    default: \"\"",
+      "",
+      "runs:",
+      "  using: \"composite\"",
+      "  steps:",
+      "    $0"
+    ],
+    "description": "Inserts a boilerplate for starting a new composite action file."
+  },
+  "gh_action_input": {
+    "scope": "yaml",
+    "prefix": ["action_input"],
+    "body": [
+      "${1:input-key}:",
+      "  required: ${2|false,true|}",
+      "  ${3:type: ${4|string,number,choice,boolean # Note: booleans are strings in composite actions and has to be used as strings below.|}}",
+      "  ${5:default: \"$6\"}",
+      "  description: $7",
+      "$0"
+    ],
+    "description": "Inserts a input object for a composite action configuration."
+  },
+  "gh_run_action": {
+    "scope": "yaml",
+    "prefix": ["run_action"],
+    "body": [
+      "- name: $1",
+      "  shell: ${2|bash,pwsh|}",
+      "  ${3:if: \\${{ $4 \\}\\}}",
+      "  run: $7",
+      "  ${5:working-directory: $6}",
+      "$0"
+    ],
+    "description": "Inserts a run action step in your github workflow."
+  },
+  "gh_workflow_job": {
+    "scope": "yaml",
+    "prefix": ["job"],
+    "body": [
+      "${1:job_id}:",
+      "  runs-on: ${2|ubuntu-latest,windows-latest|}",
+      "  timeout-minutes: ${3:15}",
+      "  ${4:if: \\${{ $5 \\}\\}}",
+      "  ${6:environment: \\${{ $7 \\}\\}}",
+      "  ${8:needs: \\${{ $9 \\}\\}}",
+      "  steps:",
+      "    $0"
+    ],
+    "description": "Inserts a job object for use in a github workflow."
+  },
+  "gh_checkout_step": {
+    "scope": "yaml",
+    "prefix": ["checkout"],
+    "body": ["- uses: actions/checkout@v3", "$0"],
+    "description": "Inserts a github checkout step."
+  }
+}

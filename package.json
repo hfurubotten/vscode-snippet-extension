@@ -2,7 +2,7 @@
   "name": "mrheine-snippets",
   "displayName": "MrHeine Snippets",
   "description": "Collection of MrHeine's most used snippets",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "MrHeine",
   "preview": true,
   "repository": {
@@ -37,7 +37,11 @@
         "path": "./snippets/snippets.code-snippets"
       },
       {
-        "path": "./snippets/handy.code-snippets"
+        "language": "yaml",
+        "path": "./snippets/gh-actions.code-snippets"
+      },
+      {
+        "path": "./snippets/general.code-snippets"
       }
     ]
   }
