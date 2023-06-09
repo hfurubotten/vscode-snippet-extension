@@ -30,6 +30,8 @@ This extension gives a range of snippets that can be used while developing and m
 
 ### Terraform snippets
 
+**tf_email_variable** - Inserts a variable block for an email input. - Keywords: `email_variable`
+
 **tf_environment_name_variable** - Inserts a variable block for an environment runtime name input. - Keywords: "environment_name env_name environment_variable"
 
 **tf_format** - Inserts an already filled format function. - Keywords: "format"

@@ -5,6 +5,12 @@ All notable changes to the "mrheine-snippets" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.0.7 - preview
+
+### Added
+
+- Snippets for terraform email variable input.
+
 ## 0.0.6 - preview
 
 ### Added
