@@ -5,6 +5,19 @@ All notable changes to the "mrheine-snippets" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.0.8 - preview
+
+### Added
+
+- Terraform snippet for Azure MS SQL server.
+- Terraform snippet for Azure Storage Account.
+- Container registry naming local snippet for Terraform.
+
+### Changed
+
+- Added more allowed characters in email verification block.
+- Added more options for RBAC role assignment snippet.
+
 ## 0.0.7 - preview
 
 ### Added
