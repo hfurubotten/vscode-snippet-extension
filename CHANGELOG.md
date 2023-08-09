@@ -5,6 +5,13 @@ All notable changes to the "mrheine-snippets" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.0.9 - preview
+
+### Fixed
+
+- Fixed missing backslash in email validation regex.
+- Fixed typo in comment on MS SQL terraform snippet.
+
 ## 0.0.8 - preview
 
 ### Added

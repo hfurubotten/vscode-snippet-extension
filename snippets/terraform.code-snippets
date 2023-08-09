@@ -25,7 +25,7 @@
       "  description = \"${2:Email address.}\"",
       "",
       "  validation {",
-      "    condition     = can(regex(\"^[a-zA-Z.\\-_]+@${3:domain}\\.${4:no}\\$\", var.${1:email_var}))",
+      "    condition     = can(regex(\"^[a-zA-Z.\\\\-_]+@${3:domain}\\.${4:no}\\$\", var.${1:email_var}))",
       "    error_message = \"${1:email_var} does not follow required format of `name.nameson@${3:domain}.${4:no}`.\"",
       "  }",
       "}",
