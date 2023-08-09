@@ -64,6 +64,8 @@ This extension gives a range of snippets that can be used while developing and m
 
 **azurerm_mssql_server** - Inserts a resource setup for an Azure MS SQL server. - Keywords: `sql_server mssql_server`
 
+**azurerm_mssql_server_audit** - Inserts resources needed to turn on MSSQL Server auditing to a Log Analytics Workspace. - Keywords: `mssql_server_audit`
+
 **azurerm_provider** - Inserts a standard provider block for azurerm. - Keywords: `azurerm provider`
 
 **azurerm_role_assignment** - Inserts an azure role assignment. - Keywords: `role_assignment rbac`

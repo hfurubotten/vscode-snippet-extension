@@ -7,10 +7,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## 0.0.9 - preview
 
+### Added
+
+- Terraform snippet for MS SQL server auditing.
+
 ### Fixed
 
-- Fixed missing backslash in email validation regex.
-- Fixed typo in comment on MS SQL terraform snippet.
+- Missing backslash in email validation regex.
+- Typo in comment on MS SQL terraform snippet.
 
 ## 0.0.8 - preview
 
