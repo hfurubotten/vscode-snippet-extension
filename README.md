@@ -90,6 +90,8 @@ This extension gives a range of snippets that can be used while developing and m
 
 **azurerm_naming_mssql_server** - Inserts a local for generating a MSSql server name. - Keywords: `mssql_server_naming`
 
+**azurerm_naming_service_bus_namespace_naming** - Inserts a local for generating a service bus namespace name. - Keywords: `service_bus_namespace_naming`
+
 **azurerm_naming_storage_account** - Inserts a local for generating a storage account name. - Keywords: `storage_account_naming`
 
 ### Github Workflow snippets

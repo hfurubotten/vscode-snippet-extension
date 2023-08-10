@@ -53,6 +53,15 @@
     ],
     "description": "Inserts a local for generating a MSSql server name."
   },
+  "azurerm_naming_service_bus_namespace_naming": {
+    "scope": "terraform",
+    "prefix": ["service_bus_namespace_naming"],
+    "body": [
+      "${4:service_bus_namespace_name} = format(\"${1|%s-%s-sbns,sbns-%s-%s|}\", substr(${2:local.project_short_name}, 0, 40), ${3:var.environment}) # Naming restrictions: max 50 characters",
+      "$0"
+    ],
+    "description": "Inserts a local for generating a service bus namespace name."
+  },
   "azurerm_naming_storage_account": {
     "scope": "terraform",
     "prefix": ["storage_account_naming"],

@@ -10,6 +10,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added
 
 - Terraform snippet for MS SQL server auditing.
+- Terraform local snippet for Azure Service Bus Namespace naming.
 
 ### Fixed
 
