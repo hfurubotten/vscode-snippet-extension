@@ -132,7 +132,7 @@
       "resource \"azurerm_role_assignment\" \"${1:this}\" {",
       "  scope                = ${2:azurerm_resource_group.this.id}",
       "  principal_id         = $4",
-      "  role_definition_name = \"${3|Storage Blob Data Contributor,Key Vault Secrets User,Key Vault Secrets Officer,Reader,Contributor,Owner,AcrPush,AcrPull|}\"",
+      "  role_definition_name = \"${3|Storage Blob Data Contributor,Key Vault Secrets User,Key Vault Secrets Officer,Reader,Contributor,Owner,AcrPush,AcrPull,Azure Service Bus Data Sender,Azure Service Bus Data Receiver,Azure Service Bus Data Owner|}\"",
       "}",
       "$0"
     ],

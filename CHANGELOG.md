@@ -17,6 +17,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Missing backslash in email validation regex.
 - Typo in comment on MS SQL terraform snippet.
 
+### Changed
+
+- Service bus options for RBAC role assignment snippet.
+
 ## 0.0.8 - preview
 
 ### Added
