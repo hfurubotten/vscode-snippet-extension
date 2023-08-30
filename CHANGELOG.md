@@ -20,6 +20,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Changed
 
 - Service bus options for RBAC role assignment snippet.
+- Github actions snippets changed to `github-actions-workflow` scope, to function better with [Github Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) extension.
 
 ## 0.0.8 - preview
 

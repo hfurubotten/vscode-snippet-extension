@@ -1,6 +1,6 @@
 {
   "gh_composite_action": {
-    "scope": "yaml",
+    "scope": "github-actions-workflow",
     "prefix": ["composite_action"],
     "body": [
       "name: ${1:Composite Action Name}",
@@ -20,7 +20,7 @@
     "description": "Inserts a boilerplate for starting a new composite action file."
   },
   "gh_action_input": {
-    "scope": "yaml",
+    "scope": "github-actions-workflow",
     "prefix": ["action_input"],
     "body": [
       "${1:input-key}:",
@@ -33,7 +33,7 @@
     "description": "Inserts a input object for a composite action configuration."
   },
   "gh_run_action": {
-    "scope": "yaml",
+    "scope": "github-actions-workflow",
     "prefix": ["run_action"],
     "body": [
       "- name: $1",
@@ -46,7 +46,7 @@
     "description": "Inserts a run action step in your github workflow."
   },
   "gh_workflow_job": {
-    "scope": "yaml",
+    "scope": "github-actions-workflow",
     "prefix": ["job"],
     "body": [
       "${1:job_id}:",
@@ -61,7 +61,7 @@
     "description": "Inserts a job object for use in a github workflow."
   },
   "gh_checkout_step": {
-    "scope": "yaml",
+    "scope": "github-actions-workflow",
     "prefix": ["checkout"],
     "body": ["- uses: actions/checkout@v3", "$0"],
     "description": "Inserts a github checkout step."
