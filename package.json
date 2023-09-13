@@ -2,7 +2,7 @@
   "name": "mrheine-snippets",
   "displayName": "MrHeine Snippets",
   "description": "Collection of MrHeine's most used snippets",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publisher": "MrHeine",
   "preview": true,
   "repository": {
@@ -33,11 +33,11 @@
         "path": "./snippets/terraform-test.code-snippets"
       },
       {
-        "language": "jsonc",
+        "language": "snippets",
         "path": "./snippets/snippets.code-snippets"
       },
       {
-        "language": "yaml",
+        "language": "github-actions-workflow",
         "path": "./snippets/gh-actions.code-snippets"
       },
       {

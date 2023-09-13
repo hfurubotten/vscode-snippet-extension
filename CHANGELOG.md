@@ -5,6 +5,13 @@ All notable changes to the "mrheine-snippets" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.0.10 - preview
+
+### Fixed
+
+- Correct scope on snippet snippets.
+- Correct scope in project file on github action workflow snippets.
+
 ## 0.0.9 - preview
 
 ### Added
