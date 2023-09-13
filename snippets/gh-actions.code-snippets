@@ -63,7 +63,7 @@
   "gh_checkout_step": {
     "scope": "github-actions-workflow",
     "prefix": ["checkout"],
-    "body": ["- uses: actions/checkout@v3", "$0"],
+    "body": ["- uses: actions/checkout@v4", "$0"],
     "description": "Inserts a github checkout step."
   }
 }

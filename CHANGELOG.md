@@ -12,6 +12,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Correct scope on snippet snippets.
 - Correct scope in project file on github action workflow snippets.
 
+### Changed
+
+- Upgraded checkout action to v4 on github actions snippets.
+
 ## 0.0.9 - preview
 
 ### Added
