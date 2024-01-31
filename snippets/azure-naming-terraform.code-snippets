@@ -3,7 +3,7 @@
     "scope": "terraform",
     "prefix": ["app_service_plan_naming", "asp_naming"],
     "body": [
-      "${4:plan_name} = format(\"${1|%s-%s-asp,asp-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 40 characters",
+      "${4:plan_name} = format(\"${1|%s-%s-asp,asp-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 40 characters",
       "$0"
     ],
     "description": "Inserts a local for generating an app service plan name."
@@ -12,7 +12,7 @@
     "scope": "terraform",
     "prefix": ["container_registry_naming", "acr_naming"],
     "body": [
-      "${4:acr_name} = format(\"${1|%s%sacr,acr%s%s|}\", substr(replace(lower(${2:local.project_short_name}), \"/[^a-z0-9]/\", \"\"), 0, 43), ${3:var.environment}) # Naming restrictions: max 50 characters, only alphanumeric",
+      "${4:acr_name} = format(\"${1|%s%sacr,acr%s%s|}\", substr(replace(lower(${2:local.project_short_name}), \"/[^a-z0-9]/\", \"\"), 0, 43), ${3:local.environment}) # Naming restrictions: max 50 characters, only alphanumeric",
       "$0"
     ],
     "description": "Inserts a local for generating a container registry name."
@@ -21,7 +21,7 @@
     "scope": "terraform",
     "prefix": ["function_app_naming", "func_naming"],
     "body": [
-      "${4:func_app_name} = format(\"${1|%s-%s-func,func-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 60 characters",
+      "${4:func_app_name} = format(\"${1|%s-%s-func,func-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 60 characters",
       "$0"
     ],
     "description": "Inserts a local for generating a function app name."
@@ -30,7 +30,7 @@
     "scope": "terraform",
     "prefix": ["log_analytics_naming"],
     "body": [
-      "${4:log_analytics_name} = format(\"${1|%s-%s-log,log-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
+      "${4:log_analytics_name} = format(\"${1|%s-%s-log,log-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
       "$0"
     ],
     "description": "Inserts a local for generating a log analytics name."
@@ -48,7 +48,7 @@
     "scope": "terraform",
     "prefix": ["mssql_server_naming"],
     "body": [
-      "${4:sql_server_name} = format(\"${1|%s-%s-sql,sql-%s-%s|}\", ${2:local.project_short_name}, ${3:var.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
+      "${4:sql_server_name} = format(\"${1|%s-%s-sql,sql-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 64 characters, alphanumeric + hyphens",
       "$0"
     ],
     "description": "Inserts a local for generating a MSSql server name."
@@ -57,7 +57,7 @@
     "scope": "terraform",
     "prefix": ["service_bus_namespace_naming"],
     "body": [
-      "${4:service_bus_namespace_name} = format(\"${1|%s-%s-sbns,sbns-%s-%s|}\", substr(${2:local.project_short_name}, 0, 40), ${3:var.environment}) # Naming restrictions: max 50 characters",
+      "${4:service_bus_namespace_name} = format(\"${1|%s-%s-sbns,sbns-%s-%s|}\", substr(${2:local.project_short_name}, 0, 40), ${3:local.environment}) # Naming restrictions: max 50 characters",
       "$0"
     ],
     "description": "Inserts a local for generating a service bus namespace name."
@@ -70,5 +70,23 @@
       "$0"
     ],
     "description": "Inserts a local for generating a storage account name."
+  },
+  "azurerm_naming_identity": {
+    "scope": "terraform",
+    "prefix": ["identity_naming"],
+    "body": [
+      "${4:identity_name} = format(\"${1|%s-%s-id,id-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 128 characters, alphanumeric + hyphens + underscores",
+      "$0"
+    ],
+    "description": "Inserts a local for generating an identity name."
+  },
+  "azurerm_naming_insights": {
+    "scope": "terraform",
+    "prefix": ["insights_naming"],
+    "body": [
+      "${4:insights_name} = format(\"${1|%s-%s-appi,appi-%s-%s|}\", ${2:local.project_short_name}, ${3:local.environment}) # Naming restrictions: max 260 characters",
+      "$0"
+    ],
+    "description": "Inserts a local for generating an application insights name."
   }
 }
