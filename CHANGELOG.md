@@ -11,6 +11,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Added naming snippet for identity resource.
 - Added naming snippet for application insights resource.
+- Add snippet for getting a local for environment from terraform workspace.
 
 ### Changed
 

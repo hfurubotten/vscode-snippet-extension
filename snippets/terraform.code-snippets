@@ -1,4 +1,13 @@
 {
+  "tf_environment_local": {
+    "scope": "terraform",
+    "prefix": ["environment_local", "env_local"],
+    "body": [
+      "environment = terraform.workspace == \"default\" ? \"dev\" : terraform.workspace"
+      "$0"
+    ],
+    "description": "Inserts a local for calculating environment name from terraform workspace."
+  },
   "tf_environment_name_variable": {
     "scope": "terraform",
     "prefix": ["environment_name", "env_name", "environment_variable"],
