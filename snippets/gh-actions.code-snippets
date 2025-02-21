@@ -52,6 +52,8 @@
       "${1:job_id}:",
       "  runs-on: ${2|ubuntu-latest,windows-latest|}",
       "  timeout-minutes: ${3:15}",
+      "  permissions:",
+      "    contents: read",
       "  ${4:if: \\${{ $5 \\}\\}}",
       "  ${6:environment: \\${{ $7 \\}\\}}",
       "  ${8:needs: \\${{ $9 \\}\\}}",
@@ -63,7 +65,12 @@
   "gh_checkout_step": {
     "scope": "github-actions-workflow",
     "prefix": ["checkout"],
-    "body": ["- uses: actions/checkout@v4", "$0"],
+    "body": [
+      "- uses: actions/checkout@v4",
+      "  with:",
+      "    persist-credentials: false",
+      "$0"
+    ],
     "description": "Inserts a github checkout step."
   }
 }
