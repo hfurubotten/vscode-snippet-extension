@@ -15,9 +15,9 @@
       "runs:",
       "  using: \"composite\"",
       "  steps:",
-      "    $0"
+      "    $0",
     ],
-    "description": "Inserts a boilerplate for starting a new composite action file."
+    "description": "Inserts a boilerplate for starting a new composite action file.",
   },
   "gh_action_input": {
     "scope": "github-actions-workflow",
@@ -28,9 +28,9 @@
       "  ${3:type: ${4|string,number,choice,boolean # Note: booleans are strings in composite actions and has to be used as strings below.|}}",
       "  ${5:default: \"$6\"}",
       "  description: $7",
-      "$0"
+      "$0",
     ],
-    "description": "Inserts a input object for a composite action configuration."
+    "description": "Inserts a input object for a composite action configuration.",
   },
   "gh_run_action": {
     "scope": "github-actions-workflow",
@@ -41,9 +41,9 @@
       "  ${3:if: \\${{ $4 \\}\\}}",
       "  run: $7",
       "  ${5:working-directory: $6}",
-      "$0"
+      "$0",
     ],
-    "description": "Inserts a run action step in your github workflow."
+    "description": "Inserts a run action step in your github workflow.",
   },
   "gh_workflow_job": {
     "scope": "github-actions-workflow",
@@ -58,19 +58,19 @@
       "  ${6:environment: \\${{ $7 \\}\\}}",
       "  ${8:needs: \\${{ $9 \\}\\}}",
       "  steps:",
-      "    $0"
+      "    $0",
     ],
-    "description": "Inserts a job object for use in a github workflow."
+    "description": "Inserts a job object for use in a github workflow.",
   },
   "gh_checkout_step": {
     "scope": "github-actions-workflow",
     "prefix": ["checkout"],
     "body": [
-      "- uses: actions/checkout@v4",
+      "- uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
       "  with:",
       "    persist-credentials: false",
-      "$0"
+      "$0",
     ],
-    "description": "Inserts a github checkout step."
-  }
+    "description": "Inserts a github checkout step.",
+  },
 }
